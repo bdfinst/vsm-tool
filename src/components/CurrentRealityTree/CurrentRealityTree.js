@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer'
 
 import { useCurrentReality } from './currentRealityContext'
-
 // import ConnectionLine from '../DiagramElements/ConnectionLine'
-// import CrtNode from './CrtNode'
+import CrtNode from './CrtNode'
+import config from '../../globalConfig'
+
 // import CrtHelpContent from './CrtHelpContent'
 // import CustomEdge from '../DiagramElements/CustomEdge'
 // import HelpDialog from '../HelpDialog'
@@ -22,6 +23,7 @@ import { useCurrentReality } from './currentRealityContext'
 
 const onLoad = (reactFlowInstance) => {
   console.log('flow loaded:', reactFlowInstance)
+  console.log(config.crtNodeType)
 
   reactFlowInstance.fitView()
 }
@@ -57,6 +59,9 @@ const CurrentRealityTree = () => {
       <ReactFlowProvider>
         <ReactFlow
           elements={elements}
+          nodeTypes={{
+            [config.crtNodeType]: CrtNode,
+          }}
           onElementsRemove={onElementsRemove}
           onConnect={onConnect}
           onLoad={onLoad}

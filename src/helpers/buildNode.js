@@ -67,8 +67,8 @@ export const buildCrtNode = ({ id, x, y }) => {
 
   return {
     id: id > 0 ? `${id}` : '-1',
-    type: config.reworkNodeType,
     sourcePosition: 'left',
+    type: config.crtNodeType,
     targetPosition: 'bottom',
     selected: false,
     data: { text: '' },

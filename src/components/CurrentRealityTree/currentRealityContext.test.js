@@ -50,6 +50,7 @@ describe('creating a CRT', () => {
       )
     })
 
+    console.log(result.current.state.elements)
     expect(result.current.state.maxNodeId).toEqual(4)
     expect(result.current.state.elements.length).toEqual(6)
   })

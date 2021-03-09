@@ -38,7 +38,6 @@ export default function getGraphLayout(
 
       // Pass a slightly different position to notify react flow about the change
       const calcY = nodeWithPosition.y
-
       const calcX = nodeWithPosition.x + totalOffset + Math.random() / 10000
 
       position = {

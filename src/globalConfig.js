@@ -9,6 +9,7 @@ const config = {
   deselectedColor: theme.palette.primary.dark,
   vsmHeight: 550,
   processNodeType: 'processNode',
+  crtNodeType: 'crtNode',
   reworkNodeType: 'reworkNode',
 }
 

@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer'
-// import { useTheme } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
 
 import { useCurrentReality } from './currentRealityContext'
-import ConnectionLine from '../DiagramElements/ConnectionLine'
-// import CrtHelpContent from './CrtHelpContent'
-import CustomEdge from '../DiagramElements/CustomEdge'
-// import HelpDialog from '../HelpDialog'
-import config from '../../globalConfig'
 
-const vsmBackground = 'rgb(238, 238, 240)'
-const reactFlowStyle = {
-  height: config.vsmHeight - 50,
-  background: vsmBackground,
-}
+// import ConnectionLine from '../DiagramElements/ConnectionLine'
+// import CrtNode from './CrtNode'
+// import CrtHelpContent from './CrtHelpContent'
+// import CustomEdge from '../DiagramElements/CustomEdge'
+// import HelpDialog from '../HelpDialog'
+// import config from '../../globalConfig'
+
+// import { useTheme } from '@material-ui/core/styles'
+// import Grid from '@material-ui/core/Grid'
+
+// const vsmBackground = 'rgb(238, 238, 240)'
+// const reactFlowStyle = {
+//   height: config.vsmHeight - 50,
+//   width: '100%',
+//   background: vsmBackground,
+// }
 
 const onLoad = (reactFlowInstance) => {
   console.log('flow loaded:', reactFlowInstance)
@@ -25,8 +29,11 @@ const onLoad = (reactFlowInstance) => {
 const CurrentRealityTree = () => {
   // const theme = useTheme()
   const { state } = useCurrentReality()
+  const [elements, setElements] = useState(state.elements)
 
-  const [elements] = useState(state.elements)
+  useEffect(() => {
+    setElements(state.elements)
+  }, [state.elements])
 
   const onConnect = (params) => {
     console.log(params)
@@ -41,48 +48,22 @@ const CurrentRealityTree = () => {
     // removeElements(elementsToRemove)
   }
 
-  const handlePaneClick = () => {
-    // if (selectedNode) toggleNodeSelect(selectedNode)
-  }
+  // const handlePaneClick = () => {
+  //   // if (selectedNode) toggleNodeSelect(selectedNode)
+  // }
 
   return (
     <>
       <ReactFlowProvider>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="flex-start"
-        >
-          <Grid item xs={12} id="vsm-container">
-            <ReactFlow
-              style={reactFlowStyle}
-              elements={elements}
-              // nodeTypes={{
-              //   [config.processNodeType]: Node,
-              // }}
-              edgeTypes={{ custom: CustomEdge }}
-              connectionLineComponent={ConnectionLine}
-              defaultZoom={0.6}
-              minZoom={0.05}
-              maxZoom={1.5}
-              snapToGrid
-              onLoad={onLoad}
-              onConnect={onConnect}
-              onPaneClick={handlePaneClick}
-              onElementsRemove={onElementsRemove}
-              arrowHeadColor="green"
-            />
-          </Grid>
-        </Grid>
+        <ReactFlow
+          elements={elements}
+          onElementsRemove={onElementsRemove}
+          onConnect={onConnect}
+          onLoad={onLoad}
+          snapToGrid
+          snapGrid={[15, 15]}
+        />
       </ReactFlowProvider>
-      {/* <HelpDialog
-        title="Current Reality Trees"
-        open={vsmHelpOpen}
-        onClose={handleVsmHelpClose}
-      >
-        <CrtHelpContent />
-      </HelpDialog> */}
     </>
   )
 }

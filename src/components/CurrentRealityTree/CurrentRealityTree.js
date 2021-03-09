@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import ReactFlow, { ReactFlowProvider } from 'react-flow-renderer'
+import React from 'react'
 
-import { useCurrentReality } from './currentRealityContext'
+// import { useCurrentReality } from './currentRealityContext'
 // import ConnectionLine from '../DiagramElements/ConnectionLine'
 import CrtNode from './CrtNode'
 import config from '../../globalConfig'
@@ -21,6 +22,93 @@ import config from '../../globalConfig'
 //   background: vsmBackground,
 // }
 
+const elements = [
+  {
+    id: '1',
+    sourcePosition: 'left',
+    type: 'crtNode',
+    targetPosition: 'bottom',
+    selected: false,
+    data: { text: '' },
+    style: {
+      background: '#fff',
+      borderColor: 'rgb(37, 50, 77)',
+      borderRadius: '12px',
+      borderStyle: 'solid',
+      borderWidth: '4px',
+      padding: 5,
+    },
+    position: { x: 110.0000732967379, y: 150 },
+  },
+  {
+    id: '2',
+    sourcePosition: 'left',
+    type: 'crtNode',
+    targetPosition: 'bottom',
+    selected: false,
+    data: { text: '' },
+    style: {
+      background: '#fff',
+      borderColor: 'rgb(37, 50, 77)',
+      borderRadius: '12px',
+      borderStyle: 'solid',
+      borderWidth: '4px',
+      padding: 5,
+    },
+    position: { x: 1, y: 1 },
+  },
+  {
+    id: '3',
+    sourcePosition: 'left',
+    type: 'crtNode',
+    targetPosition: 'bottom',
+    selected: false,
+    data: { text: '' },
+    style: {
+      background: '#fff',
+      borderColor: 'rgb(37, 50, 77)',
+      borderRadius: '12px',
+      borderStyle: 'solid',
+      borderWidth: '4px',
+      padding: 5,
+    },
+    position: { x: 1, y: 1 },
+  },
+  {
+    id: '4',
+    sourcePosition: 'left',
+    type: 'crtNode',
+    targetPosition: 'bottom',
+    selected: false,
+    data: { text: '' },
+    style: {
+      background: '#fff',
+      borderColor: 'rgb(37, 50, 77)',
+      borderRadius: '12px',
+      borderStyle: 'solid',
+      borderWidth: '4px',
+      padding: 5,
+    },
+    position: { x: 1, y: 1 },
+  },
+  {
+    id: 'ebb85141-1527-40a7-80ee-5e15032d42d4',
+    source: '1',
+    target: '2',
+    arrowHeadType: 'arrowclosed',
+    type: 'custom',
+    selected: false,
+  },
+  {
+    id: 'c709bab3-6a57-4aab-a7bc-9db82f1e4771',
+    source: '1',
+    target: '3',
+    arrowHeadType: 'arrowclosed',
+    type: 'custom',
+    selected: false,
+  },
+]
+
 const onLoad = (reactFlowInstance) => {
   console.log('flow loaded:', reactFlowInstance)
   console.log(config.crtNodeType)
@@ -30,12 +118,12 @@ const onLoad = (reactFlowInstance) => {
 
 const CurrentRealityTree = () => {
   // const theme = useTheme()
-  const { state } = useCurrentReality()
-  const [elements, setElements] = useState(state.elements)
+  // const { state } = useCurrentReality()
+  // const [elements, setElements] = useState(state.elements)
 
-  useEffect(() => {
-    setElements(state.elements)
-  }, [state.elements])
+  // useEffect(() => {
+  //   setElements(state.elements)
+  // }, [state.elements])
 
   const onConnect = (params) => {
     console.log(params)

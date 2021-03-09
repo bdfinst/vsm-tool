@@ -6,7 +6,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { useContextMenu } from 'react-contexify'
 
 import { useValueStream } from './valueStreamContext'
-import EdgeHandle from '../Nodes/EdgeHandle'
+import EdgeHandle from '../DiagramElements/EdgeHandle'
 import NodeContextMenu from './NodeContextMenu'
 
 const useStyles = makeStyles((theme) => ({

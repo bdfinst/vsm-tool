@@ -43,7 +43,7 @@ describe('Inserting a node before a selected node', () => {
 
   const addEdge = (source, target) => {
     act(() => {
-      result.current.createEdge({ source: source, target: target })
+      result.current.createEdge(source, target)
     })
     return getLastEdge(result.current.state.elements)
   }

@@ -9,9 +9,9 @@ import Grid from '@material-ui/core/Grid'
 
 import { getNodeById } from '../../helpers'
 import { useValueStream } from './valueStreamContext'
-import ConnectionLine from './ConnectionLine'
+import ConnectionLine from '../DiagramElements/ConnectionLine'
 import Controls from './Controls'
-import CustomEdge from './CustomEdge'
+import CustomEdge from '../DiagramElements/CustomEdge'
 import HelpDialog from '../HelpDialog'
 import InputDialog from './InputDialog/InputDialog'
 import Node from './Node'
@@ -24,6 +24,7 @@ const reactFlowStyle = {
   height: config.vsmHeight - 50,
   background: vsmBackground,
 }
+
 const ValueStreamMap = () => {
   const theme = useTheme()
 
@@ -69,11 +70,10 @@ const ValueStreamMap = () => {
   }
 
   const onConnect = (params) => {
-    console.log(params.source, params.target)
     const source = getNodeById(state.elements, params.source)
     const target = getNodeById(state.elements, params.target)
 
-    createEdge({ source, target })
+    createEdge(source, target)
   }
 
   const onNodeDragStop = (event, node) => {

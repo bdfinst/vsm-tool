@@ -176,7 +176,7 @@ describe('Linking nodes with edges', () => {
 
   it('should add an edge between two nodes', () => {
     act(() => {
-      result.current.createEdge({ source: source, target: target1 })
+      result.current.createEdge(source, target1)
     })
 
     const edges = getEdges(result.current.state.elements)
@@ -187,12 +187,12 @@ describe('Linking nodes with edges', () => {
 
   it('should prevent adding a duplicate edge', () => {
     act(() => {
-      result.current.createEdge({ source: source, target: target1 })
+      result.current.createEdge(source, target1)
     })
     const before = getEdges(result.current.state.elements).length
 
     act(() => {
-      result.current.createEdge({ source: source, target: target1 })
+      result.current.createEdge(source, target1)
     })
 
     const after = getEdges(result.current.state.elements).length
@@ -202,7 +202,7 @@ describe('Linking nodes with edges', () => {
 
   it('should update an edge to point to a new node', () => {
     act(() => {
-      result.current.createEdge({ source: source, target: target1 })
+      result.current.createEdge(source, target1)
     })
 
     let edges = getEdges(result.current.state.elements)

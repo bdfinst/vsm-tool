@@ -406,7 +406,7 @@ const useValueStream = () => {
   const createReworkNode = (x, y) =>
     dispatch({ type: 'CREATE_NODE', data: { x, y, isRework: true } })
 
-  const createEdge = ({ source, target }) =>
+  const createEdge = (source, target) =>
     dispatch({ type: 'CREATE_EDGE', data: { source, target } })
 
   const changeNodeValues = ({ node, position, data }) =>

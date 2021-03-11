@@ -73,6 +73,7 @@ export default function HeaderBar({ onClick, open }) {
         >
           <MenuIcon />
         </IconButton>
+        <img src="tpvLogos/tpv_light_logo.png" width="90px" alt="logo" />
         <Typography
           component="h1"
           variant="h6"

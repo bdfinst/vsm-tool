@@ -52,8 +52,8 @@ export default function Chart() {
     <Paper>
       <Title>Pipeline Activity</Title>
       <ComposedChart
-        width={800}
-        height={500}
+        width={400}
+        height={250}
         data={data}
         margin={{
           top: 20,

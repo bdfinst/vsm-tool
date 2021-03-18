@@ -14,16 +14,16 @@ import Title from '../Title'
 
 // const teamSize = 6
 
-const getPipelineCycleTimeData = (weeks) => {
-  const init = []
-  for (let index = 0; index < weeks; index += 1) {
-    init.push({ weekNbr: index + 1 })
-  }
-  return init.map((el) => {
-    const pipelineCycleTime = Math.floor(Math.random() * 10)
-    return { name: `Week ${el.weekNbr}`, pipelineCycleTime }
-  })
-}
+// const getPipelineCycleTimeData = (weeks) => {
+//   const init = []
+//   for (let index = 0; index < weeks; index += 1) {
+//     init.push({ weekNbr: index + 1 })
+//   }
+//   return init.map((el) => {
+//     const pipelineCycleTime = Math.floor(Math.random() * 10)
+//     return { name: `Week ${el.weekNbr}`, pipelineCycleTime }
+//   })
+// }
 
 // const buildData = (weeks) => {
 //   const init = []
@@ -43,12 +43,50 @@ const getPipelineCycleTimeData = (weeks) => {
 //     )
 //   })
 // }
-const weekCount = 8
+// const weekCount = 8
 
 export default function Chart() {
   const theme = useTheme()
 
-  const pipelineCycleTimeData = getPipelineCycleTimeData(weekCount)
+  // const pipelineCycleTimeData = getPipelineCycleTimeData(weekCount)
+  const pipelineCycleTimeData = [
+    {
+      name: 'Page A',
+      uv: 4000,
+      pv: 2400,
+    },
+    {
+      name: 'Page B',
+      uv: 3000,
+      pv: 1398,
+    },
+    {
+      name: 'Page C',
+      uv: 2000,
+      pv: 9800,
+    },
+    {
+      name: 'Page D',
+      uv: 2780,
+      pv: 3908,
+    },
+    {
+      name: 'Page E',
+      uv: 1890,
+      pv: 4800,
+    },
+    {
+      name: 'Page F',
+      uv: 2390,
+      pv: 3800,
+    },
+    {
+      name: 'Page G',
+      uv: 3490,
+      pv: 4300,
+    },
+  ]
+
   console.log(pipelineCycleTimeData)
 
   return (
@@ -57,7 +95,7 @@ export default function Chart() {
 
       <BarChart
         name="Pipeline Cycle Time"
-        dataKey="pipelineCycleTime"
+        dataKey="uv"
         barSize={20}
         fill={theme.palette.primary.dark}
         width={400}
@@ -72,7 +110,7 @@ export default function Chart() {
       >
         <CartesianGrid stroke="#f5f5f5" />
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis dataKey="uv" />
         <Tooltip />
         <Legend />
       </BarChart>

@@ -272,6 +272,8 @@ export const buildReworkNode = ({ id, x, y }) => {
 export const getParentInfo = (node, edges, nodes) => {
   const link = edges.filter((e) => e.target === node.id)
 
+  console.log(node, edges, nodes)
+
   const childrenCount =
     link.length > 0
       ? edges.filter((e) => e.source === link[0].source).length

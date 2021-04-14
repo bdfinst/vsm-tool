@@ -22,12 +22,13 @@ describe('Converting loaded data to elements', () => {
 
     expect(isSameJsonSchema(elements, newElements)).toEqual(true)
   })
-  it('should convert the elements to the file formet', () => {
+  it('should convert the elements to the file format', () => {
     const converted = buildFileFromElements(elements)
+
 
     expect(isSameJsonSchema(converted, dataFile)).toEqual(true)
   })
-  describe('Idnetifying bad files', () => {
+  describe('Identifying bad files', () => {
     it('should reject a data file that is not an array', () => {
       expect(isValidFile({})).toEqual(false)
       expect(isValidFile([])).toEqual(true)

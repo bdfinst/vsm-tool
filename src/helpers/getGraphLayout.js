@@ -41,13 +41,21 @@ export default function getGraphLayout(
   // useProportional = false,
   // offsetWidth = config.betweenNodes,
 ) {
-  const edges = getEdges(elements)
+  const edges = getEdges(elements).sort((a, b) =>
+    a.source >= b.source ? 1 : -1,
+  )
+
   const nodes = getNodes(elements)
 
   const newNodes = nodes.map((el, idx) => {
     let newNode
 
     const [parent, childrenCount] = getParentInfo(el, edges, processedNodes)
+
+    if (childrenCount > 0) {
+      console.log(el, parent)
+    }
+    console.log(childrenCount)
 
     const lastPosition =
       processedNodes.length > 0

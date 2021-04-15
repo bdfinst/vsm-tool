@@ -7,7 +7,7 @@ describe('Layout VSM path', () => {
   const verticalOffset = config.nodeHeight
   const horizontalOffset = config.betweenNodes + config.nodeWidth
 
-  it.skip('should add new nodes with no edges below the last node', () => {
+  it('should add new nodes with no edges below the last node', () => {
     const newNode = {
       id: '3',
       position: { x: 100, y: 100 },
@@ -24,7 +24,7 @@ describe('Layout VSM path', () => {
       Math.round(lastPosition.x),
     )
   })
-  it.skip('should layout attached nodes from left to right', () => {
+  it('should layout attached nodes from left to right', () => {
     const newNode = [
       {
         id: '3',
@@ -49,11 +49,25 @@ describe('Layout VSM path', () => {
       Math.round(lastPosition.y),
     )
   })
-  it('should arrange parallel flows', () => {
 
 
+  it('should arrange children vertically', () => {
     const elements = getGraphLayout(parallelFlowMock)
 
+    const node = elements.find((el) => el.id === '3')
+    const parallelNode = elements.find((el) => el.id === '6')
+
+    console.log(node.position,parallelNode.position )
+    expect(Math.round(node.position.y)).toEqual(
+      Math.round(parallelNode.position.y),
+    )
+    expect(Math.round(parallelNode.position.x)).toBeLessThan(
+      Math.round(node.position.x),
+    )
+  })
+
+  it.skip('should arrange parallel flows', () => {
+    const elements = getGraphLayout(parallelFlowMock)
 
     const node2 = elements.find((el) => el.id === '2')
     const node3 = elements.find((el) => el.id === '3')

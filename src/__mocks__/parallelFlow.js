@@ -65,28 +65,10 @@ export default [
       pctCompleteAccurate: 100,
     },
   },
-  {
-    source: '1',
-    target: '2',
-  },
-  {
-    source: '2',
-    target: '3',
-  },
-  {
-    source: '3',
-    target: '4',
-  },
-  {
-    source: '4',
-    target: '5',
-  },
-  {
-    source: '2',
-    target: '6',
-  },
-  {
-    source: '6',
-    target: '5',
-  },
+  { id: 'e1', source: '1', target: '2' },
+  { id: 'e2', source: '2', target: '3' },
+  { id: 'e3', source: '3', target: '4' },
+  { id: 'e4', source: '4', target: '5' },
+  { id: 'e5', source: '2', target: '6' },
+  { id: 'e6', source: '6', target: '5' },
 ]

@@ -51,8 +51,12 @@ const useStyles = makeStyles(theme => ({
 const InputDialog = ({ onClose, open, selectedNode }) => {
   const theme = useTheme()
   const classes = useStyles(theme)
-  const { addNodeBefore, addNodeAfter, changeNodeValues, toggleNodeSelect } =
-    useValueStream()
+  const {
+    addNodeBefore,
+    addNodeAfter,
+    changeNodeValues,
+    toggleNodeSelect,
+  } = useValueStream()
 
   const [formData, setFormData] = useState(defaultNodeData)
   const [errorList, setErrorList] = useState({})

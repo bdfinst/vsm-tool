@@ -51,21 +51,14 @@ export default function SpeedThroughput({ width, height, margin }) {
       <Legend />
 
       <Area
-        name="Cycle Time"
+        name="Integration Rate"
         dataKey="cycleTime"
         type="monotone"
         fill={theme.palette.primary.light}
         stroke={theme.palette.primary.dark}
       />
-      <Area
-        name="Throughput"
-        type="monotone"
-        dataKey="throughput"
-        fill={theme.palette.secondary.light}
-        stroke={theme.palette.secondary.dark}
-      />
       <Line
-        name="Defects"
+        name="Defect Rate"
         type="monotone"
         dataKey="defectRate"
         stroke={theme.palette.error.main}
